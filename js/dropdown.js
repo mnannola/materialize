@@ -129,6 +129,14 @@
           // Dropdown goes past screen on left, force left alignment
           currAlignment = 'left';
         }
+
+        // Handle modal content
+        var modalContent = wrapper.parents('.modal-content');
+        if (modalContent.size() > 0) {
+          windowHeight = modalContent.height();
+          offsetTop = offsetTop - modalContent.offset().top;
+        }
+
         // Vertical bottom offscreen detection
         if (offsetTop + activates.innerHeight() > windowHeight) {
           // If going upwards still goes offscreen, just crop height of dropdown.
